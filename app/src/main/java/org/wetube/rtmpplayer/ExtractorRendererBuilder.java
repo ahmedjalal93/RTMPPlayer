@@ -40,8 +40,8 @@ import com.google.android.exoplayer.upstream.DefaultUriDataSource;
  */
 public class ExtractorRendererBuilder implements RendererBuilder {
 
-  private static final int BUFFER_SEGMENT_SIZE = 64 * 1024;
-  private static final int BUFFER_SEGMENT_COUNT = 265;
+  private static final int BUFFER_SEGMENT_SIZE = 128 * 1024;
+  private static final int BUFFER_SEGMENT_COUNT = 1024;
 
   private final Context context;
   private final String userAgent;
@@ -75,7 +75,7 @@ public class ExtractorRendererBuilder implements RendererBuilder {
         mainHandler, player, 50);
     MediaCodecAudioTrackRenderer audioRenderer = new MediaCodecAudioTrackRenderer(sampleSource,
         MediaCodecSelector.DEFAULT, null, true, mainHandler, player,
-        AudioCapabilities.getCapabilities(context), AudioManager.STREAM_MUSIC);
+        null, AudioManager.STREAM_MUSIC);
 
     // Invoke the callback.
     TrackRenderer[] renderers = new TrackRenderer[DemoPlayer.RENDERER_COUNT];

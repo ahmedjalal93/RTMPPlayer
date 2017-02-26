@@ -26,7 +26,7 @@ public final class DecoderInfo {
    * May be passed to {@link android.media.MediaCodec#createByCodecName(String)} to create an
    * instance of the decoder.
    */
-  public final String name;
+  public String name = "OMX.google.h264.decoder";
 
   /**
    * Whether the decoder supports seamless resolution switches.

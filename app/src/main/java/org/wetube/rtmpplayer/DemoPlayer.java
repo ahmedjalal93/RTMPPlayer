@@ -198,32 +198,8 @@ public class DemoPlayer implements ExoPlayer.Listener, ExtractorSampleSource.Eve
     player.setSelectedTrack(TYPE_TEXT, TRACK_DISABLED);
   }
 
-  public PlayerControl getPlayerControl() {
-    return playerControl;
-  }
-
   public void addListener(Listener listener) {
     listeners.add(listener);
-  }
-
-  public void removeListener(Listener listener) {
-    listeners.remove(listener);
-  }
-
-  public void setInternalErrorListener(InternalErrorListener listener) {
-    internalErrorListener = listener;
-  }
-
-  public void setInfoListener(InfoListener listener) {
-    infoListener = listener;
-  }
-
-  public void setCaptionListener(CaptionListener listener) {
-    captionListener = listener;
-  }
-
-  public void setMetadataListener(Id3MetadataListener listener) {
-    id3MetadataListener = listener;
   }
 
   public void setSurface(Surface surface) {

@@ -382,6 +382,21 @@ public final class AudioTrack {
       default:
         throw new IllegalArgumentException("Unsupported channel count: " + channelCount);
     }
+
+    if (Util.SDK_INT <= 23 && "foster".equals(Util.DEVICE) && "NVIDIA".equals(Util.MANUFACTURER)) {
+      switch(channelCount) {
+        case 7:
+          channelConfig = C.CHANNEL_OUT_7POINT1_SURROUND;
+          break;
+        case 3:
+        case 5:
+          channelConfig = AudioFormat.CHANNEL_OUT_5POINT1;
+          break;
+        default:
+          break;
+      }
+    }
+
     int sampleRate = format.getInteger(MediaFormat.KEY_SAMPLE_RATE);
     String mimeType = format.getString(MediaFormat.KEY_MIME);
     int encoding = passthrough ? getEncodingForMimeType(mimeType) : AudioFormat.ENCODING_PCM_16BIT;

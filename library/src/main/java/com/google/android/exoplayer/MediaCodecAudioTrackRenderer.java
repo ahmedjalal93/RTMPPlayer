@@ -206,7 +206,7 @@ public class MediaCodecAudioTrackRenderer extends MediaCodecTrackRenderer implem
         eventListener);
     this.eventListener = eventListener;
     this.audioSessionId = AudioTrack.SESSION_ID_NOT_SET;
-    this.audioTrack = new AudioTrack(audioCapabilities, streamType);
+    this.audioTrack = new AudioTrack(null, streamType);
   }
 
   @Override
